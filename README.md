@@ -43,7 +43,7 @@ Créez une nouvelle base de données vide via phpMyAdmin à l'aide de Xampp puis
  Ouvrez votre navigateur web préféré et rentrez cette adresse : 
  
  ```sh
-localhost:3000
+localhost:8000
 ```
 ### Technologies
 
