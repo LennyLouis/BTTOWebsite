@@ -1,0 +1,116 @@
+<div class="container">
+
+    <div ng-show="news!=null">
+        <!-- Page Heading/Breadcrumbs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">{{news.title}}
+                    <small>par <strong>{{news.author}}</strong>
+                    </small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Content Row -->
+        <div class="row">
+
+            <!-- Blog Post Content Column -->
+            <div class="col-lg-12 col-md-12">
+
+                <!-- Blog Post -->
+
+                <!-- Date/Time -->
+                <p><i class="fa fa-clock-o"></i> Posté le {{convertDateTimeToDate(news.createdAt)}}</p>
+
+                <hr>
+
+                <div ng-show="news.image!=null">
+                    <!-- Preview Image -->
+                    <img class="img-responsive" src="{{news.image}}" alt="">
+                    <hr>
+                </div>
+
+                <!-- Post Content -->
+                <p class="lead" ng-bind-html="news.content"></p>
+
+                <hr ng-hide="user==null">
+
+                <!-- Blog Comments -->
+                <div ng-if="user!=null">
+                    <!-- Comments Form -->
+                    <div class="well">
+                        <h4>Laisser un commentaire :</h4>
+                        <form role="form">
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" ng-model="new_comment.content"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" ng-click="createComment()">Envoyer</button>
+                        </form>
+                    </div>
+
+                    <hr ng-if="comments.length>0">
+                </div>
+
+                <!-- Posted Comments -->
+
+                <!-- Comment -->
+                <div>
+                    <div class="media" ng-repeat="comment in comments">
+                        <a class="pull-left">
+                            <img class="" width="64" height="64" src="public/assets/img/btto/user-icon.png" alt="">
+                        </a>
+                        <div class="media-body">
+                            <h4 class="media-heading">{{comment.author}}
+                                <small>{{convertDateTimeToDateAndTime(comment.createdAt)}}</small>
+                            </h4>
+                            {{comment.content}}
+                        </div>
+                    </div>
+                </div>
+                <!-- Comment -->
+                <!--<div class="media">
+                    <a class="pull-left" href="#">
+                        <img class="media-object" src="http://placehold.it/64x64" alt="">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">Start Bootstrap
+                            <small>August 25, 2014 at 9:30 PM</small>
+                        </h4>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+                        <div class="media">
+                            <a class="pull-left" href="#">
+                                <img class="media-object" src="http://placehold.it/64x64" alt="">
+                            </a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Nested Start Bootstrap
+                                    <small>August 25, 2014 at 9:30 PM</small>
+                                </h4>
+                                Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>-->
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+    </div>
+
+    
+
+    <!-- Footer -->
+	<hr>
+	
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Back To The Origin 2017</p>
+            </div>
+        </div>
+    </footer>
+
+</div>

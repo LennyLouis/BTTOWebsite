@@ -1,0 +1,12 @@
+= Workflow BTTO-WEBSITE!
+Auteur : <Mathurin Ramart>
+
+Ce document présente le workflow de base de l'application.
+
+== Backend
+
+...
+
+== Frontend
+
+...

@@ -1,0 +1,8 @@
+tr.active td{
+	background-color: #00ACAC !important;
+	color: #ffffff;
+}
+
+.option-buttons{
+	display: inline-block;
+}

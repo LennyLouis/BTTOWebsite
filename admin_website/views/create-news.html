@@ -1,0 +1,42 @@
+<div>
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">News</a></li>
+        <li class="active">Créer une news</li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <h1 class="page-header">Nouvelle news <small></small></h1>
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <form name="summernote_form">
+            <div class="form-group">
+                <label for="inputTitle">Titre :</label>
+                <input type="text" class="form-control" id="inputTitle" placeholder="Titre" ng-model="news.title"/>
+            </div>
+            <div class="form-group">
+                <label for="inputDescription">Description :</label>
+                <textarea class="form-control" id="inputDescription" placeholder="Description..." rows="5" ng-model="news.description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="inputImage">Image :</label>
+                <input type="text" class="form-control" id="inputImage" placeholder="Image (links 1024x683)" ng-model="news.image"/>
+            </div>
+            <div class="form-group">
+                <label for="inputContent">Contenu :</label>
+                <textarea class="summernote" id="inputContent" ng-model="news.content"></textarea>
+            </div>
+            <div class="form-group" ng-show="errors.length>0">
+                <label for="inputContent">Erreurs :</label>
+                <ul>
+                    <li style="color: red;" ng-repeat="err in errors track by $index">{{err}}</li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success center-block" ng-click="createNews()">{{label.button}}</button>
+            </div>
+        </form>
+    </div>
+    <!-- end row -->
+</div>

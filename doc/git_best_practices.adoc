@@ -1,0 +1,8 @@
+= Git Best Practices!
+Auteur : <Mathurin Ramart>
+
+Ce document présente les bonnes pratiques d'utilisation de Git afin de ne pas polluer le répertoire du projet.
+
+== Les branches 
+
+...

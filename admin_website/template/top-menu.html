@@ -1,0 +1,21 @@
+<!-- begin #top-menu -->
+<div id="top-menu" class="top-menu" ng-controller="topMenuController">
+    <div class="container-fluid">
+    <!-- begin top-menu nav -->
+    <ul class="nav">
+        <li class="has-sub" ng-class="{active:$state.includes('app.dashboard')}">
+            <a href="javascript:;">
+                <b class="caret pull-right"></b>
+                <i class="fa fa-laptop"></i>
+                <span>Dashboard</span>
+            </a>
+            <ul class="sub-menu">
+                <li ui-sref-active="active"><a ui-sref="app.home">Home</a></li>
+                <li ui-sref-active="active"><a ui-sref="app.dashboard.v2">Dashboard v2</a></li>
+            </ul>
+        </li>
+    </ul>
+    <!-- end top-menu nav -->
+    </div>
+</div>
+<!-- end #top-menu -->

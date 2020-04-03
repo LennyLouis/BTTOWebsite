@@ -1,0 +1,92 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')  
+// [if !IE] <!
+html(lang='en',ng-app='App')
+  // <![endif]
+  head
+    link(rel='apple-touch-icon', sizes='57x57', href='favicons/apple-icon-57x57.png')
+    link(rel='apple-touch-icon', sizes='60x60', href='favicons/apple-icon-60x60.png')
+    link(rel='apple-touch-icon', sizes='72x72', href='favicons/apple-icon-72x72.png')
+    link(rel='apple-touch-icon', sizes='76x76', href='favicons/apple-icon-76x76.png')
+    link(rel='apple-touch-icon', sizes='114x114', href='favicons/apple-icon-114x114.png')
+    link(rel='apple-touch-icon', sizes='120x120', href='favicons/apple-icon-120x120.png')
+    link(rel='apple-touch-icon', sizes='144x144', href='favicons/apple-icon-144x144.png')
+    link(rel='apple-touch-icon', sizes='152x152', href='favicons/apple-icon-152x152.png')
+    link(rel='apple-touch-icon', sizes='180x180', href='favicons/apple-icon-180x180.png')
+    link(rel='icon', type='image/png', sizes='192x192', href='favicons/android-icon-192x192.png')
+    link(rel='icon', type='image/png', sizes='32x32', href='favicons/favicon-32x32.png')
+    link(rel='icon', type='image/png', sizes='96x96', href='favicons/favicon-96x96.png')
+    link(rel='icon', type='image/png', sizes='16x16', href='favicons/favicon-16x16.png')
+    link(rel='manifest', href='favicons/manifest.json')
+    meta(charset='utf-8')
+    title BTTO
+    meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no', name='viewport')
+    meta(content='', name='description')
+    meta(content='', name='author')
+    // ================== BEGIN BASE CSS STYLE ==================
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700', rel='stylesheet')
+    link(href='../public/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css', rel='stylesheet')
+    link(href='../public/assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='../public/assets/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='../public/assets/css/animate.min.css', rel='stylesheet')
+    link(href='../public/assets/css/style.css', rel='stylesheet')
+    link(href='../public/assets/css/style-responsive.min.css', rel='stylesheet')
+    link#theme(href='../public/assets/css/theme/default.css', rel='stylesheet')
+    link(href='../public/assets/css/custom.css', rel='stylesheet')
+    // ================== END BASE CSS STYLE ==================
+    // ================== BEGIN BASE ANGULAR JS ==================
+    script(src='../public/assets/plugins/angularjs/angular.min.js')
+    script(src='../public/assets/plugins/angularjs/angular-ui-route.min.js')
+    script(src='../public/assets/plugins/bootstrap-angular-ui/ui-bootstrap-tpls.min.js')
+    script(src='../public/assets/plugins/angularjs/ocLazyLoad.min.js')
+    script(src='../public/assets/plugins/angularjs/angular-locale_fr-fr.js')
+    // ================== END BASE ANGULAR JS ==================
+    // ================== BEGIN BASE JS ==================
+    script(src='../public/assets/plugins/pace/pace.min.js')
+    // ================== END BASE JS ==================
+  body(ng-controller='AppController')
+    block content
+    // ================== BEGIN BASE JS ==================
+    script(src='../public/assets/plugins/jquery/jquery-1.9.1.min.js')
+    script(src='../public/assets/plugins/jquery/jquery-migrate-1.1.0.min.js')
+    script(src='../public/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js')
+    script(src='../public/assets/plugins/bootstrap/js/bootstrap.min.js')
+    script(src='../public/assets/js/angular-app.js')
+    script(src='../public/assets/js/controllers/appController.js')
+    script(src='../public/assets/js/controllers/homeController.js')
+    script(src='../public/assets/js/controllers/newsdetailController.js')
+    script(src='../public/assets/js/controllers/contactController.js')
+    script(src='../public/assets/js/controllers/shopController.js')
+    script(src='../public/assets/js/controllers/voteController.js')
+    script(src='../public/assets/js/controllers/profilController.js')
+    script(src='../public/assets/js/services/auth.service.js')
+    script(src='../public/assets/js/services/user.service.js')
+    script(src='../public/assets/js/services/account.service.js')
+    script(src='../public/assets/js/services/authority.service.js')
+    script(src='../public/assets/js/services/cart.service.js')
+    script(src='../public/assets/js/services/news.service.js')
+    script(src='../public/assets/js/services/vote.service.js')
+    script(src='../public/assets/js/services/right.service.js')
+    script(src='../public/assets/js/services/server.service.js')
+    script(src='../public/assets/js/services/category.service.js')
+    script(src='../public/assets/js/services/article.service.js')
+    script(src='../public/assets/js/services/utils.service.js')
+    script(src='../public/assets/js/services/comment.service.js')
+    script(src='../public/assets/js/services/message.service.js')
+    script(src='../public/assets/js/services/response.service.js')
+    script(src='../public/assets/js/services/game.service.js')
+    script(src='../public/assets/js/services/mojang.service.js')
+    script(src='../public/assets/js/services/game_account.service.js')
+    //if lt IE 9
+    script(src='../public/assets/crossbrowserjs/html5shiv.js')
+    script(src='../public/assets/crossbrowserjs/respond.min.js')
+    script(src='../public/assets/crossbrowserjs/excanvas.min.js')
+    script(src='../public/assets/plugins/jquery-cookie/jquery.cookie.js')
+    script(src='../public/assets/js/apps.js')
+
+    // ================== END BASE JS ==================
+    script.
+      $(document).ready(function() {
+      Apps.init();
+      });

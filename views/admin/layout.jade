@@ -1,0 +1,80 @@
+doctype html
+//if IE 8
+  html.ie8(lang='en')  
+// [if !IE] <!
+html(lang='en', ng-app='colorAdminApp')
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title(data-ng-bind="'BTTO Admin | ' + $state.current.data.pageTitle") AngularJS
+    meta(content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no', name='viewport')
+    meta(content='', name='description')
+    meta(content='', name='author')
+    // ================== BEGIN BASE CSS STYLE ==================
+    link(href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700', rel='stylesheet')
+    link(href='../admin_website/assets/plugins/jquery-ui/themes/base/minified/jquery-ui.min.css', rel='stylesheet')
+    link(href='../admin_website/assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='../admin_website/assets/plugins/font-awesome/css/font-awesome.min.css', rel='stylesheet')
+    link(href='../admin_website/assets/css/animate.min.css', rel='stylesheet')
+    link(href='../admin_website/assets/css/style.css', rel='stylesheet')
+    link(href='../admin_website/assets/css/style-responsive.min.css', rel='stylesheet')
+    link#theme(href='admin_website/assets/css/theme/default.css', rel='stylesheet')
+    link(href='../admin_website/assets/css/custom.css', rel='stylesheet')
+    // ================== END BASE CSS STYLE ==================
+    // ================== BEGIN BASE JS ==================
+    script(src='../admin_website/assets/plugins/pace/pace.min.js')
+    // ================== END BASE JS ==================
+    //if lt IE 9
+      script(src='../admin_website/assets/crossbrowserjs/excanvas.min.js')
+    // ================== BEGIN BASE ANGULAR JS ==================
+    script(src='../admin_website/assets/plugins/angularjs/angular.min.js')
+    script(src='../admin_website/assets/plugins/angularjs/angular-ui-route.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js')
+    script(src='../admin_website/assets/plugins/bootstrap-angular-ui/ui-bootstrap-tpls.min.js')
+    script(src='../admin_website/assets/plugins/angularjs/ocLazyLoad.min.js')
+    // ================== END BASE ANGULAR JS ==================
+  body(ng-controller='appController', ng-class="{'pace-top': setting.layout.paceTop, 'boxed-layout': setting.layout.pageBoxedLayout, 'bg-white': setting.layout.pageBgWhite }")
+    // begin #page-loader
+    #page-loader.fade.in(ng-controller='pageLoaderController')
+      span.spinner
+    // end #page-loader
+    // begin #page-container
+    #page-container.page-container.page-sidebar-fixed.page-header-fixed.fade(ng-class="{\
+    'page-sidebar-minified': setting.layout.pageSidebarMinified,\
+    'page-content-full-height': setting.layout.pageContentFullHeight,\
+    'page-footer-fixed': setting.layout.pageFixedFooter,\
+    'page-with-right-sidebar': setting.layout.pageRightSidebar,\
+    'page-sidebar-minified': setting.layout.pageSidebarMinified,\
+    'page-with-two-sidebar': setting.layout.pageTwoSidebar,\
+    'page-right-sidebar-toggled': setting.layout.pageTwoSidebar,\
+    'page-with-top-menu': setting.layout.pageTopMenu,\
+    'page-without-sidebar': setting.layout.pageWithoutSidebar,\
+    'page-with-wide-sidebar': setting.layout.pageWideSidebar,\
+    'page-with-light-sidebar': setting.layout.pageLightSidebar,\
+    'p-t-0': setting.layout.pageWithoutHeader\
+    }")
+      div(ui-view='')
+    // end page container
+    // ================== BEGIN BASE JS ==================
+    script(src='../admin_website/assets/plugins/jquery/jquery-1.9.1.min.js')
+    script(src='../admin_website/assets/plugins/jquery/jquery-migrate-1.1.0.min.js')
+    script(src='../admin_website/assets/plugins/jquery-ui/ui/minified/jquery-ui.min.js')
+    script(src='../admin_website/assets/plugins/bootstrap/js/bootstrap.min.js')
+    //if lt IE 9
+      script(src='../admin_website/assets/crossbrowserjs/html5shiv.js')
+      script(src='../admin_website/assets/crossbrowserjs/respond.min.js')
+    script(src='../admin_website/assets/plugins/slimscroll/jquery.slimscroll.min.js')
+    script(src='../admin_website/assets/plugins/jquery-cookie/jquery.cookie.js')
+    // ================== END BASE JS ==================
+    // ================== BEGIN PAGE LEVEL JS ==================
+    script(src='../admin_website/assets/js/angular-app.js')
+    script(src='../admin_website/assets/js/angular-setting.js')
+    script(src='../admin_website/assets/js/angular-controller.js')
+    script(src='../admin_website/assets/js/angular-directive.js')
+    script(src='../admin_website/assets/js/apps.js')
+    script(src='../admin_website/assets/js/controllers/adminController.js')
+    script(src='../admin_website/assets/js/controllers/createNewsController.js')
+    script(src='../admin_website/assets/js/controllers/listNewsController.js')
+    script(src='../admin_website/assets/js/services/news.service.js')
+    script(src='../admin_website/assets/js/services/auth.service.js')
+    // ================== END PAGE LEVEL JS ==================

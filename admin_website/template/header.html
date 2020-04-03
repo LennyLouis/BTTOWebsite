@@ -1,0 +1,46 @@
+<!-- begin #header -->
+<div id="header" class="header navbar navbar-default navbar-fixed-top" ng-controller="headerController">
+    <!-- begin container-fluid -->
+    <div class="container-fluid">
+        <!-- begin mobile sidebar expand / collapse button -->
+        <div class="navbar-header">
+            <a href="#" class="navbar-brand"><img width="30" height="30" style="display: inline-block;" src="admin_website/assets/img/btto/favicon.png"><span style="display: inline-block;margin-left: 10px;">BTTO</span></a>
+            <button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- end mobile sidebar expand / collapse button -->
+        
+        <!-- begin header navigation right -->
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                <form class="navbar-form full-width">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Recherche" />
+                        <button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+                    </div>
+                </form>
+            </li>
+            <li class="dropdown navbar-user">
+                <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                    <img src="admin_website/assets/img/user-13.jpg" alt="" /> 
+                    <span class="hidden-xs">{{user.username}}</span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu animated fadeInLeft">
+                    <li class="arrow"></li>
+                    <li ng-click="logout()"><a href="javascript:;">Déconnexion</a></li>
+                </ul>
+            </li>
+            <li class="hidden-xs" ng-if="setting.layout.pageTwoSidebar === true">
+                <a href="javascript:;" data-click="right-sidebar-toggled" class="f-s-14">
+                    <i class="fa fa-th"></i>
+                </a>
+            </li>
+        </ul>
+        <!-- end header navigation right -->
+    </div>
+    <!-- end container-fluid -->
+</div>
+<!-- end #header -->

@@ -1,0 +1,103 @@
+ <!-- Page Content -->
+<div class="container" style="background-color: white;">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Boutique
+                <small></small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Content Row -->
+    <div class="row">
+        <div class="col-md-12">
+            <a ui-sref="shop" class="btn btn-info">
+                <i class="fa fa-arrow-left fa-1x pull-left"></i>
+                Retour
+            </a>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div>
+            <div class="col-md-3">
+                <img class="img-thumbnail" style="width:100%;" ng-src="{{articleById.image}}">
+                <br>
+                <p></p>
+            </div>
+            <div class="col-md-6">
+                <h1>{{articleById.name}}</h1>
+                <p style="overflow:hidden">{{articleById.description}}</p>
+            </div>
+            <div class="col-md-3">
+                <center>
+                <h3>{{articleById.price}} $</h3>
+                <hr>
+                <p>
+                    <a href="" data-target="#modal-message" class="btn btn-lg btn-info" data-toggle="modal">
+                        <i class="fa fa-shopping-cart fa-2x pull-left"></i>
+                        Acheter Maintenant<br>
+                        <small>Payment sécurisé</small>
+                    </a>
+                </p>
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <!-- /.row -->
+
+
+    <!-- Footer -->
+    <hr>
+    
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Back To The Origin 2017</p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<div class="modal fade" id="modal-message">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Confirmation d'achat</h4>
+            </div>
+            <div class="modal-body">
+                <p>Est-ce bien ce que vous voulez acheter ?</p>
+                <table class="table">
+                    <!-- <caption>Optional table caption.</caption> -->
+                    <thead>
+                        <tr>
+                            <th>#ID</th>
+                            <th>Nom de l'article</th>
+                            <th>Quantité</th>
+                            <th>Prix unitaire</th>
+                            <th>Prix TTC</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">#{{commande.id}}</th>
+                            <td>{{commande.ARTICLE_NAME}}</td>
+                            <td>{{commande.QUANTITY}}</td>
+                            <td>{{commande.PRIXUNIT}}</td>
+                            <td>{{commande.PRIXTTC}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <a href="javascript:;" class="btn btn-sm btn-white" data-dismiss="modal">Close</a>
+                <a href="javascript:;" class="btn btn-sm btn-primary">Save Changes</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+extends layout
+
+block content
+  // begin #header
+  #header.header.navbar.navbar-inverse.navbar-fixed-top
+    // begin container
+    .container
+      // begin navbar-header
+      .navbar-header
+        button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#header-navbar')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(ui-sref='home')
+          img(src='../public/assets/img/btto/logo.png', width='140', height='50')
+      // end navbar-header
+      // begin navbar-collapse
+      #header-navbar.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(ui-sref='about') QUI SOMMES-NOUS ?
+          li
+            a(ui-sref='shop') BOUTIQUE
+          li
+            a(ui-sref='contact') CONTACT
+          li(ng-hide="current_user==null")
+            a(href='javascript:;', data-toggle='dropdown')
+              .username {{current_user.username}} 
+                b.caret
+            ul.dropdown-menu
+              li(ng-hide="current_user==null")
+                a(ui-sref='profil') 
+                  i.fa.fa-user 
+                  span PROFIL
+              li
+                a.logout(ng-click='logout()') 
+                  i.fa.fa-sign-out
+                  span DECONNEXION
+          li(ng-show="current_user==null")
+            a(href='#',data-target="#modal-login",data-toggle="modal") CONNEXION
+          li(ng-hide="current_user==null")
+            a.header-cart(href='javascript:;', data-toggle='dropdown')
+              i.fa.fa-shopping-bag
+              span.total 3
+              span.arrow.top
+            .dropdown-menu.dropdown-menu-cart.dropdown-menu-basket.p-0
+              .cart-header
+                h4.cart-title Panier (3)
+              .cart-body
+                ul.cart-item
+                  li
+                    .cart-item-image
+                      img(src='public/assets/img/ipad.jpg', alt='')
+                    .cart-item-info
+                      h4 iPad Pro Wi-Fi 128GB - Silver
+                      p.price $699.00
+                    .cart-item-close
+                      a(href='#', data-toggle='tooltip', data-title='Supprimer') ×
+                  li
+                    .cart-item-image
+                      img(src='public/assets/img/imac.jpg', alt='')
+                    .cart-item-info
+                      h4 21.5-inch iMac
+                      p.price $1299.00
+                    .cart-item-close
+                      a(href='#', data-toggle='tooltip', data-title='Supprimer') ×
+                  li
+                    .cart-item-image
+                      img(src='public/assets/img/iphone.png', alt='')
+                    .cart-item-info
+                      h4 iPhone 6s 16GB - Silver
+                      p.price $649.00
+                    .cart-item-close
+                      a(href='#', data-toggle='tooltip', data-title='Supprimer') ×
+              .cart-footer
+                .row.row-space-10
+                  .col-xs-6
+                    a.btn.btn-default.btn-block(ng-click="emptyBasket()") Vider le panier
+                  .col-xs-6
+                    a.btn.btn-inverse.btn-block(ui-sref='checkout') Commander
+      // end navbar-collapse
+    // end container
+  // end #header
+  // begin #page-title
+  #page-title.page-title.has-bg
+    .bg-cover
+      img(src='../public/assets/img/btto/minecraft-header.jpg', alt='')
+    .container
+      h1 Back To The Origin
+      p Site officiel
+  // end #page-title
+  div(ui-view)
+  #modal-login.modal.fade
+    .modal-dialog.modal-lg
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h4.modal-title Connexion
+        .modal-body
+          ul.nav.nav-pills
+            li.active
+              a(href='#', data-target='#nav-pills-tab-login', data-toggle='tab', ng-click='initForms()') Se connecter
+            li
+              a(href='#', data-target='#nav-pills-tab-register', data-toggle='tab', ng-click='initForms()') S'enregistrer
+          .tab-content
+            #nav-pills-tab-login.tab-pane.fade.active.in
+              form.form-horizontal(ng-submit='login()')
+                .form-group#input-group-login
+                  label.col-md-3.control-label Mail :
+                  .col-md-6
+                    input.form-control(type='email', placeholder='Mail', ng-model='form_login.mail')
+                  .col-md-3
+                .form-group#input-group-login
+                  label.col-md-3.control-label Mot de passe :
+                  .col-md-6
+                    input.form-control(type='password', placeholder='Mot de passe', ng-model='form_login.password')
+                  .col-md-3
+                .form-group(ng-show='errors_login.length>0')
+                  .row
+                    ul.errors
+                      li.text-danger(ng-repeat='err in errors_login') {{err}} 
+                .form-group#button-login
+                  .row
+                    button.btn.btn-sm.btn-primary.center-block(type='submit') Se connecter
+            #nav-pills-tab-register.tab-pane.fade
+              form.form-horizontal(ng-submit='register()')
+                .form-group#input-group-register
+                  label.col-md-3.control-label Username :
+                  .col-md-6
+                    input.form-control(type='text', placeholder='Username', ng-model='form_register.username')
+                  .col-md-3
+                .form-group#input-group-register
+                  label.col-md-3.control-label Mail :
+                  .col-md-6
+                    input.form-control(type='email', placeholder='Mail', ng-model='form_register.mail')
+                  .col-md-3
+                .form-group#input-group-register
+                  label.col-md-3.control-label Mot de passe :
+                  .col-md-6
+                    input.form-control(type='password', placeholder='Mot de passe', ng-model='form_register.password')
+                  .col-md-3
+                .form-group(ng-show='errors_register.length>0')
+                  .row
+                    ul.errors
+                      li.text-danger(ng-repeat='err in errors_register') {{err}} 
+                .form-group#button-register
+                  .row
+                    button.btn.btn-sm.btn-primary.center-block(type='submit') S'enregister

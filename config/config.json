@@ -1,0 +1,30 @@
+{
+  "development": {
+    "username": "website",
+    "password": "RO3mMUqo3aCxZdDz",
+    "database": "website",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "skstat": {
+    "username": "website",
+    "password": "RO3mMUqo3aCxZdDz",
+    "database": "website",
+    "host": "127.0.0.1",
+    "dialectOptions": {
+        "socketPath": "/var/run/mysqld/mysqld.sock"
+    },
+    "define": {
+        "paranoid": true
+    },
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "database_production",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
+

@@ -1,0 +1,224 @@
+<div class="container">
+    <!-- begin profile-section -->
+    <div class="row">
+        <!-- begin profile-left -->
+        <div class="col-md-4">
+            <!-- begin profile-image -->
+            <div class="profile-image">
+                <img width="128" height="128" class="img-responsive center-block" src="../public/assets/img/btto/burn.png" />
+                <i class="fa fa-user hide"></i>
+            </div>
+            <!-- end profile-image -->
+            <div class="button-change-picture">
+                <div class="row">
+                    <button class="btn btn-warning btn-sm disabled">Changer la photo</button>
+                    <button class="btn btn-warning btn-sm" data-target="#modal-picture" data-toggle="modal">Générer un avatar</button>
+                </div>
+            </div>
+
+            
+        </div>
+        <!-- end profile-left -->
+        <!-- begin profile-right -->
+        <div class="col-md-8">
+            <!-- begin profile-info -->
+            <div class="profile-info">
+                <!-- begin table -->
+                    <h3 class="profile-username">{{current_user.username}}<small>(Joueur)</small></h3>
+                    <div class="minecraft-line">
+                        <div class="row">
+                            <img src="../public/assets/img/btto/minecraft-logo.png" width="32" height="32">
+                            &nbsp;{{game.name}} :
+                            <button ng-hide="game.connected" class="btn btn-warning btn-sm table-buttons-cell" data-target="#modal-connect" data-toggle="modal">Relier mon compte</button>
+                            <div ng-show="game.connected">
+                                <h5 class="table-buttons-cell">Connecté !</h5>
+                                <button class="btn btn-danger btn-xs center-block table-buttons-cell" ng-click="logoutMinecraftAcount(game.id)"><i class="fa fa-2x fa-times-circle-o"></i></button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <!-- end profile-info -->
+        </div>
+        <!-- end profile-right -->
+    </div>
+    <!-- end profile-section -->
+    <!-- begin profile-section -->
+    
+    <!-- begin row -->
+    <div class="row">
+        <div class="panel panel-default panel-with-tabs stats-tabs" data-sortable-id="ui-unlimited-tabs-2" ng-if="games.length>0">
+            <div class="panel-heading p-0">
+                <!-- begin nav-tabs -->
+                <div class="tab-overflow">
+                    <ul class="nav nav-tabs">
+                        <li class="prev-button"><a href="javascript:;" data-click="prev-tab" class="text-inverse"><i class="fa fa-arrow-left"></i></a></li>
+                        <li class="" ng-repeat="game in games" ng-class="{'active': $index==0}"><a target="_self" href="#nav-tab2-{{$index}}" data-toggle="tab">{{game.name}}</a></li>
+                        <li class="next-button"><a href="javascript:;" data-click="next-tab" class="text-inverse"><i class="fa fa-arrow-right"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane fade active in" id="nav-tab2-{{$index}}" ng-repeat="game in games">
+                    <div class="stats-available" ng-show="game.connected">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/sword.png"></div>
+                                    <div class="stats-info">
+                                        <h4>TOTAL KILLS :</h4>
+                                        <p>{{game.stats.Kills}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/death.png"></div>
+                                    <div class="stats-info">
+                                        <h4>TOTAL MORTS :</h4>
+                                        <p>{{game.stats.Deaths}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/block.png"></div>
+                                    <div class="stats-info">
+                                        <h4>blocks cassés :</h4>
+                                        <p>{{game.stats.Breaks}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/block.png"></div>
+                                    <div class="stats-info">
+                                        <h4>blocks placés :</h4>
+                                        <p>{{game.stats.Placed}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/bow.png"></div>
+                                    <div class="stats-info">
+                                        <h4>kills à l'arc :</h4>
+                                        <p>{{game.stats.BowKills}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/target.png"></div>
+                                    <div class="stats-info">
+                                        <h4>tirs :</h4>
+                                        <p>{{game.stats.Shoot}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/step.png"></div>
+                                    <div class="stats-info">
+                                        <h4>nombre de pas :</h4>
+                                        <p>{{game.stats.Walk}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/message.png"></div>
+                                    <div class="stats-info">
+                                        <h4>messages :</h4>
+                                        <p>{{game.stats.Messages}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-6">
+                                <div class="widget widget-stats">
+                                    <div class="stats-icon"><img width="35" height="35" src="../public/assets/img/btto/icons/terminal.png"></div>
+                                    <div class="stats-info">
+                                        <h4>commandes :</h4>
+                                        <p>{{game.stats.Commands}}</p>    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stats-not-available" ng-hide="game.connected">
+                        <h4>Statistiques indisponible...</h4>
+                        <p>
+                            <h5>Reliez votre profil à votre compte {{game.name}}</h5>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end row -->
+</div>
+<!-- end profile-container -->
+<div id="modal-connect" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+        <h4 class="modal-title">Relier mon compte</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="loginMinecraft()" class="form-horizontal">
+          <div id="input-group-login" class="form-group">
+            <label class="col-md-3 control-label">Mail :</label>
+            <div class="col-md-6">
+              <input type="email" placeholder="Mail" ng-model="form_minecraft.mail" class="form-control"/>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <div id="input-group-login" class="form-group">
+            <label class="col-md-3 control-label">Mot de passe :</label>
+            <div class="col-md-6">
+              <input type="password" placeholder="Mot de passe" ng-model="form_minecraft.password" class="form-control"/>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+          <div ng-show="errors_login.length&gt;0" class="form-group">
+            <div class="row">
+              <ul class="errors">
+                <li ng-repeat="err in errors_minecraft" class="text-danger">{{err}} </li>
+              </ul>
+            </div>
+          </div>
+          <div id="button-login" class="form-group">
+            <div class="row">
+              <button type="submit" class="btn btn-sm btn-primary center-block">Relier</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="modal-picture" class="modal fade">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+        <h4 class="modal-title">Générateur d'avatar</h4>
+      </div>
+      <div class="modal-body">
+        <iframe src="http://minecraftskinavatar.com/frame/" width="100%" height="550px" style="border: 0px"></iframe>
+      </div>
+    </div>
+  </div>
+  
+    <!-- Footer -->
+	<hr>
+	
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Back To The Origin 2017</p>
+            </div>
+        </div>
+    </footer>
+</div>

@@ -1,0 +1,21 @@
+<div>
+  <div class="row">
+    <div class="col-sm-3 col-md-2" style="padding-right: 0px;">
+      <div class="list-group">
+          <a ui-sref="swagger" class="list-group-item"><i class="fa fa-book" aria-hidden="true"></i> API</a>
+          <a ui-sref="users" class="list-group-item"><i class="fa fa-users" aria-hidden="true"></i> Utilisateurs</a>
+          <a ui-sref="news" class="list-group-item"><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</a>
+          <a ui-sref="messages" class="list-group-item"><i class="fa fa-commenting-o" aria-hidden="true"></i> Messages</a>
+          <a ui-sref="payments" class="list-group-item"><i class="fa fa-credit-card" aria-hidden="true"></i> Paiements</a>
+          <a ui-sref="items" class="list-group-item"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Items</a>
+      </div>
+      <!--<ul class="nav nav-sidebar" style="text-align: center;">
+        <li><a ui-sref="swagger"><i class="fa fa-book" aria-hidden="true"></i> API</a></li>
+        <li class="active"><a ui-sref="users"><i class="fa fa-users" aria-hidden="true"></i> Users</a></li>
+      </ul>-->
+    </div>
+    <div class="col-sm-9 col-md-10" style="padding-left: 0px;">
+      <div ui-view></div>
+    </div>
+  </div>
+</div>

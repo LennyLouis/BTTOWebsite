@@ -1,0 +1,146 @@
+ <!-- Page Content -->
+<div class="container" style="background-color: white;">
+
+    <!-- Page Heading/Breadcrumbs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Boutique
+                <small></small>
+            </h1>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!--<ul class="nav nav-pills">
+      <li ng-repeat="server in servers track by $index"><a ui-sref="shop" data-target="#nav-pills-tab-{{$index}}" ng-model="srver.serverId" value="1" data-toggle="tab">{{server.name}}</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="nav-pills-tab-1" class="tab-pane fade">
+      <div ng-repeat="server in servers track by $index" id="nav-pills-tab-{{$index}}" class="tab-pane fade">
+        <ul class="nav nav-pills">
+          <li ng-repeat="category in categories track by id"><a ui-sref="shop" data-target="#nav-pills-sub-tab-{{id}}" data-toggle="tab">{{category.name}}</a></li>
+        </ul>
+      </div>
+      <div class="tab-content">
+          <div ng-repeat="category in categories track by id" id="nav-pills-sub-tab-{{id}}" class="tab-pane fade">
+              <div ng-repeat="art in articlesById">{{art.name}}</div>
+          </div>
+          <div id="nav-pills-tab-1" class="tab-pane fade">
+              <div ng-repeat="art in articles">{{art.name | filter:srver:strict }}</div>
+          </div>
+          <div id="nav-pills-tab-2" class="tab-pane fade">
+              <div ng-repeat="art in articles">{{art.name | filter:srver:strict }}</div>
+          </div>
+          <div id="nav-pills-tab-3" class="tab-pane fade">
+              <div ng-repeat="art in articles">{{art.name | filter:srver:strict }}</div>
+          </div>
+      </div>-->
+    <!--</div>-->
+    <div class="row">
+      <div class="col-md-8">
+        <ul class="nav nav-pills nav-justified">
+            <li ng-repeat="server in servers track by $index" ng-show="server.shopActivated" ng-class="{ active: isSet(server.id) }">
+                <a href ng-click="setTab(server.id)">{{server.name}}</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <select class="selectpicker">
+          <option>Mustard</option>
+          <option>Ketchup</option>
+          <option>Relish</option>
+        </select>
+      </div>
+    </div>
+
+
+    <!--<div class="row" class="col-animate-show-hide" ng-repeat="server in servers track by $index" ng-show="isSet(server.id)">
+      <div class="col-md-12" ng-repeat="article in articles | filter:{serverId:server.id}" ng-show="article.available">
+        <div class="row shop-article-list" style="padding-left:15px;">
+          <div class="col-md-10"><a ng-href="/#/shop/{{article.id}}"><h1>{{article.name}}</h1></a></div>
+          <div class="col-md-2">
+            <div class="pull-right">
+              <h1>{{article.price}} $</h1>
+            </div>
+          </div>
+
+          <br>
+          
+          <div class="col-md-2" style="padding-left:15px;padding-bottom:15px;">
+            <a ng-href="/#/shop/{{article.id}}"><img class="img-rounded" ng-src="{{article.image}}" alt="{{article.name}}" style="width:100%"></a>
+          </div>
+          <div class="col-md-8">
+            <p>{{article.description}}</p>
+          </div>
+          <div class="col-md-2 pull-down">
+            <a ng-href="/#/shop/{{article.id}}" class="btn btn-primary pull-right">Plus de détails...</a>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>-->
+    <div class="row" class="col-animate-show-hide" ng-repeat="server in servers track by $index" ng-show="isSet(server.id)">
+      <div class="col-md-12" ng-repeat="article in articles | filter:{serverId:server.id}" ng-show="article.available">
+        <div class="row shop-article-list" style="padding-left:15px;">
+          <div class="col-md-10"><a ng-href="/#/shop/{{article.id}}"><h1>{{article.name}}</h1></a></div>
+          <div class="col-md-2">
+            <div class="pull-right">
+              <h1>{{article.price}} $</h1>
+            </div>
+          </div>
+
+          <br>
+          
+          <div class="col-md-2" style="padding-left:15px;padding-bottom:15px;">
+            <a ng-href="/#/shop/{{article.id}}"><img class="img-rounded" ng-src="{{article.image}}" alt="{{article.name}}" style="width:100%"></a>
+          </div>
+          <div class="col-md-8">
+            <p>{{article.description}}</p>
+          </div>
+          <div class="col-md-2 pull-down">
+            <a ng-href="/#/shop/{{article.id}}" class="btn btn-primary pull-right">Plus de détails...</a>
+          </div>
+        </div>
+        <br>
+      </div>
+    </div>
+
+    <!--<div class="row" class="col-animate-show-hide" ng-repeat="server in servers track by $index" ng-show="isSet(server.id)">
+      <div class="col-md-3" max-height="450px" ng-repeat="article in articles | filter:{serverId:server.id}" ng-show="article.available">
+        <div class="thumbnail shop-article-grid" style="background-color:#CBD0D3;">
+          <div height="90px">
+            <center>
+              <h4>
+                <strong>
+                  <a href="/#/shop/{{article.id}}">{{article.name}}</a>
+                </strong>
+              </h4>
+            </center>
+          </div>
+          <div style="padding-left:15px;padding-right:15px;">
+            <a ng-href="/#/shop/{{article.id}}"><img class="img-rounded" ng-src="{{article.image}}" alt="{{article.name}}" style="width:100%"></a>
+          </div>
+          <div class="caption">
+            <p>{{article.description | limitTo: 75}}...</p><br>
+            <a class="btn btn-warning">{{article.price}} $</a>
+            <a ng-href="/#/shop/{{article.id}}" class="btn btn-primary pull-right">Plus de détails...</a>
+          </div>
+        </div>
+      </div>
+    </div>-->
+
+
+
+
+
+    <!-- Footer -->
+    <hr>
+	
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Back To The Origin 2017</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
