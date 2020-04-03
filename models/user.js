@@ -6,7 +6,17 @@ module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define("User", {
     mail: DataTypes.STRING,
     password: DataTypes.STRING,
-    virtual_money: DataTypes.STRING,
+    virtual_money: {
+      type: DataTypes.INTEGER,
+      defaultValue: function() {
+        return '0'
+    }},
+    account_activated: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: function() {
+        return '1'
+    }},
+    user_uuid: { type: DataTypes.UUID, defaultValue: DataTypes.UUIDV4, allowNull: false },
     token_reset_password: DataTypes.STRING
   }, {
     instanceMethods: {
@@ -16,21 +26,18 @@ module.exports = function(sequelize, DataTypes) {
       retrieveById: function(user_id, onSuccess, onError) {
         User.find({where: {id: user_id}}, {raw: true}).then(onSuccess, onError); 
       },
-      retrieveByMail: function(mail, onSuccess, onError) {
-        User.find({where: {mail: mail}}, {raw: true}).then(onSuccess, onError);
+      retrieveByMail: function(user_mail, onSuccess, onError) {
+        User.find({where: {mail: user_mail}}, {raw: true}).then(onSuccess, onError);
       },
-      retrieveByToken: function(token, onSuccess, onError) {
-        User.find({where: {token: token}}, {raw: true}).then(onSuccess, onError);
-      },
-      createAdminUser: function(mail, password, onSuccess, onError) {
-        var token_reset_password = null;
-        User.find({where: {mail: mail}}, {raw: true}).then(function(user){
+      createAdminUser: function(user_mail, user_password, onSuccess, onError) {
+        var user_token_reset_password = null;
+        User.find({where: {mail: user_mail}}, {raw: true}).then(function(user){
           if(!user){
             var shasum = crypto.createHash('sha1');
             shasum.update(password);
             password = shasum.digest('hex');
             
-            User.build({ mail: mail, password: password, virtual_money: virtual_money, token_reset_password: token_reset_password }).save().then(onSuccess, onError);
+            User.build({ mail: user_mail, password: user_password, token_reset_password: user_token_reset_password }).save().then(onSuccess, onError);
           }
           else{
             onError("Cet utilisateur existe déjà !");
@@ -50,7 +57,7 @@ module.exports = function(sequelize, DataTypes) {
             shasum.update(password);
             password = shasum.digest('hex');
             
-            User.build({ mail: mail, password: password, virtual_money: virtual_money, token_reset_password: token_reset_password }).save().then(onSuccess, onError);
+            User.build({ mail: mail, password: password, token_reset_password: token_reset_password }).save().then(onSuccess, onError);
           }
           else{
             onError("Cet utilisateur existe déjà !");
